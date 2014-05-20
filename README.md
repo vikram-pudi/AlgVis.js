@@ -34,7 +34,7 @@ Include in HTML:
 
 In your javascript:
 
-Create your algorithm as a generator. You need to define it as a function\* (notice the \*) and include `yield` statements inside it as mentioned above. The only additional complication is if you need to call another function that **also needs to be visualized**, or if you need to call the same function recursively. You need to convert these statements as follows:
+Create your algorithm as a generator. To do this, define it as a function\* (notice the \*) and include `yield` statements inside it as mentioned above. The only additional complication is if you need to call another function that **also needs to be visualized**, or if you need to call the same function recursively. You need to convert these statements as follows:
 
 What you want:
 

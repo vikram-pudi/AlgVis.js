@@ -1,7 +1,7 @@
 AlgVis
 ======
 
-Visualize algorithm execution in javascript
+**Visualize algorithm execution in javascript**
 
 When I needed to create an online visualization for some algorithms, a google research revealed many javascript libraries for visualization. But most of these were specific for enabling particular visualization techniques (like bar graphs, etc.). Even the general libraries (like D3 and processing.js) were for visualizing and interpreting data. None of the libraries felt "just right" for algorithm visualization -- and moreover, they had steep learning curves.
 

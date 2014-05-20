@@ -1,0 +1,73 @@
+body 
+{
+ background: white;
+ text-align:left;
+}
+
+.centering
+{
+ text-align: center;
+}
+
+label
+{   
+ 	clear: left;
+	float: left;
+	font-size: 18px;
+}
+
+#commentary
+{
+  padding:10px;
+  margin:15px; 
+  font-size:18px;
+  background-color:black;
+  color:white;
+  width:50%;
+  display: inline-block;
+}
+
+#size
+{
+  display: inline-block;
+  width: 450px;
+}
+
+.inelement {width:4em; margin-right:5px;}
+
+#autofillArray
+{
+  display: none;
+  margin: 10px;
+}
+
+#animation
+{
+  display: none;
+}
+
+#result
+{
+  display:inline-block;
+  font-size:20px;
+  margin:5px;
+  position:relative;
+}
+
+.box
+{ padding:5px;
+  border:2px solid black;
+  margin:5px; 
+  font-size:20px;
+  background-color:yellow;
+  display:inline-block;
+  position:relative;
+}
+
+#controls
+ { 
+  -moz-user-select: none; 
+  -khtml-user-select: none; 
+  -webkit-user-select: none; 
+  -o-user-select: none; 
+}

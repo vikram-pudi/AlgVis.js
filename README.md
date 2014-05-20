@@ -41,6 +41,7 @@ What you want:
 ``` javascript
 function* quicksort(l, u){
    yield ['Sorting from index '+l+' to '+u, 3000, range_vis, [l,u,'lightcyan']];
+     //3000 here is an optional delay in milliseconds for how long to display this commentary; default is 2000
 
    //all the code for quicksort algorithm here
    

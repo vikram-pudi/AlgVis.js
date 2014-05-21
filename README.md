@@ -1,7 +1,7 @@
-AlgVis
-======
+AlgVis.js
+=========
 
-**Visualize algorithm execution in javascript**
+**Build Algorithm Visualizations Easily!**
 
 Demos
 -----

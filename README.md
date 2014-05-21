@@ -12,7 +12,7 @@ These demos are just proof of concept. Their look and feel can be changed / impr
 
 Introduction
 ------------
-A google research reveals many javascript libraries for visualization. But most of these are specific for enabling particular visualization techniques (like bar graphs, etc.). Even the general libraries (like D3 and processing.js) are for visualizing and interpreting data. None of these libraries feel "just right" for algorithm visualization -- and moreover, they have steep learning curves.
+A google research reveals many javascript libraries for visualization. But most of these are specific for enabling particular visualization techniques (like bar graphs, etc.). Even the general libraries (like D3 and processing.js) are for visualizing and interpreting _data_. None of these libraries feel "just right" for _algorithm_ visualization -- and moreover, they have steep learning curves.
 
 Most animations can simply be implemented as a sequence of changes of the CSS style of HTML divs on screen. These divs show the state of the algorithm and its data at any point in time. The main complexity arises because we cannot just keep a sequence of changes of CSS style in a loop. All of them will happen almost instantaneously and only the last change will be seen. Keeping a delay between the changes is not simple because javascript has no simple way of doing it. The simple ways (like implementing a sleep function that wastes time) do not work because it interferes with the native optimizations that javascript does causing hard-to-debug programs.
 

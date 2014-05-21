@@ -6,7 +6,7 @@ AlgVis
 Demos
 -----
 
-If you have the virtue of impatience, move onto the example demos:
+If you have the virtue of impatience, move onto the example demos: (As of now [May 2014], the demos seem to work in Firefox but not in Chrome! -- they will work though if you download the source and open in your browser).
 
 1. <a href="http://htmlpreview.github.io/?https://github.com/vikram-pudi/algvis/blob/master/insertionsort.html" target="_blank">Insertion Sort Visualization</a>
 2. <a href="http://htmlpreview.github.io/?https://github.com/vikram-pudi/algvis/blob/master/quicksort.html" target="_blank">Quick Sort Visualization</a>

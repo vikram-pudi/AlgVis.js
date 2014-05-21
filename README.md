@@ -3,6 +3,19 @@ AlgVis
 
 **Visualize algorithm execution in javascript**
 
+Demos
+-----
+
+If you have the virtue of impatience, move onto the example demos:
+
+1. <a href="http://htmlpreview.github.io/?https://github.com/vikram-pudi/algvis/blob/master/insertionsort.html" target="_blank">Insertion Sort Visualization</a>
+2. <a href="http://htmlpreview.github.io/?https://github.com/vikram-pudi/algvis/blob/master/quicksort.html" target="_blank">Quick Sort Visualization</a>
+
+These demos are just proof of concept and could definitely be made much better in look and feel, by simply changing the CSS, etc. AlgVis does not impose any restrictions on what is possible. Also, the demos seem to load a bit slowly in the beginning as they are being rendered by GitHub. They will be much faster if you download and see them in a browser or host them yourself.
+
+Introduction
+------------
+
 When I needed to create an online visualization for some algorithms, a google research revealed many javascript libraries for visualization. But most of these were specific for enabling particular visualization techniques (like bar graphs, etc.). Even the general libraries (like D3 and processing.js) were for visualizing and interpreting data. None of the libraries felt "just right" for algorithm visualization -- and moreover, they had steep learning curves.
 
 Most animations can simply be implemented as a sequence of changes in CSS style of the HTML divs on screen. These divs show the state of the algorithm and its data at any point in time. The main complexity arises because we cannot just keep a sequence of changes of CSS style in a loop. All of them will happen almost instantaneously and only the last change will be seen. Keeping a delay between the changes is not simple because javascript has no simple way of doing it. The simple ways (like implementing a sleep function that wastes time) do not work because it interferes with the native optimizations that javascript does causing hard-to-debug programs.

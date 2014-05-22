@@ -113,6 +113,6 @@ function range_vis(i,j,color)
 }
 
 var myviz = new Viz(init, quicksort);
-function playon() { $('#play').html('<span class="glyphicon glyphicon-play">Play</span>'); }
-function playoff() { $('#play').html('<span class="glyphicon glyphicon-pause">Pause</span>'); }
+function playon() { $('#play').html('<span class="glyphicon glyphicon-play"></span>'); }
+function playoff() { $('#play').html('<span class="glyphicon glyphicon-pause"></span>'); }
 myviz.init_buttons($('#commentary')[0], $('#play')[0], $('#next')[0], $('#stop')[0], playon, playoff);

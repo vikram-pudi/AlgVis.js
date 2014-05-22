@@ -38,7 +38,8 @@ function init() {
 }
 
 function* quicksort(l, u){
-  if (l >= u) { yield ['Nothing to sort.', 3000, element_vis, [l,'lightyellow']]; return; }
+  if (l > u) { yield ['Nothing to sort.']; return; }
+  else if (l > u) { yield ['Nothing to sort.', 3000, element_vis, [l,'lightyellow']]; return; }
   yield ['Sorting from index '+l+' to '+u, 3000, range_vis, [l,u,'lightcyan']];
   var m = l;  yield ['Pivot position = '+l, point_vis, [l,'red']];
   for (var i = l+1; i <= u; i++) {
@@ -112,6 +113,6 @@ function range_vis(i,j,color)
 }
 
 var myviz = new Viz(init, quicksort);
-function playon() { $('#play').html('<span class="glyphicon glyphicon-play"></span>'); }
-function playoff() { $('#play').html('<span class="glyphicon glyphicon-pause"></span>'); }
+function playon() { $('#play').html('<span class="glyphicon glyphicon-play">Play</span>'); }
+function playoff() { $('#play').html('<span class="glyphicon glyphicon-pause">Pause</span>'); }
 myviz.init_buttons($('#commentary')[0], $('#play')[0], $('#next')[0], $('#stop')[0], playon, playoff);

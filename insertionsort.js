@@ -90,6 +90,6 @@ function mvpoint_vis(i,col1,j,col2)
 }
 
 var myviz = new Viz(init, Sort);
-function playon() { $('#play').html('<span class="glyphicon glyphicon-play"></span>'); }
-function playoff() { $('#play').html('<span class="glyphicon glyphicon-pause"></span>'); }
+function playon() { $('#play').html('<span class="glyphicon glyphicon-play">Play</span>'); }
+function playoff() { $('#play').html('<span class="glyphicon glyphicon-pause">Pause</span>'); }
 myviz.init_buttons($('#commentary')[0], $('#play')[0], $('#next')[0], $('#stop')[0], playon, playoff);

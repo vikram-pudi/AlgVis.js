@@ -14,15 +14,15 @@ Introduction
 ------------
 A google research reveals many javascript libraries for visualization. But most of these are specific for enabling particular visualization techniques (like bar graphs, etc.). Even the general libraries (like D3 and processing.js) are for visualizing and interpreting _data_. None of these libraries feel "just right" for _algorithm_ visualization -- and moreover, they have steep learning curves.
 
-Most animations can simply be implemented as a sequence of changes of the CSS style of HTML divs on screen. These divs show the state of the algorithm and its data at any point in time. The main complexity arises because we cannot just keep a sequence of changes of CSS style in a loop. All of them will happen almost instantaneously and only the last change will be seen. Keeping a delay between the changes is not simple because javascript has no simple way of doing it. The simple ways (like implementing a sleep function that wastes time) do not work because it interferes with the native optimizations that javascript does causing hard-to-debug programs.
+Most animations can simply be implemented as a sequence of changes of the CSS style of HTML divs on screen. These divs show the state of the algorithm and its data at any point in time. The main complexity arises because we cannot just keep a sequence of changes of CSS style _in a loop_. All of them will happen almost instantaneously and only the _last change_ will be seen. Keeping a delay between the changes is not simple because javascript has no simple way of doing it. The simple ways (like implementing a sleep function that wastes time) do not work because it interferes with the native optimizations that javascript does causing hard-to-debug programs.
 
-AlgVis.js is a small module that implements the complicated logic of adding delays between events. Example visualizations of insertion sort and quicksort are provided. The algorithm code remains _readable_. In fact using AlgVis.js can make your code even more legible because you need to output a 'commentary' of the algorithm while executing it. This is done by adding a few lines in between your code where you yield the commentary. For example:
+AlgVis.js is a small module that implements the complicated logic of adding delays between statements. The algorithm code remains _readable_. In fact using AlgVis.js can make your code even more legible because you need to output a 'commentary' of the algorithm while executing it. This is done by adding a few lines in between your code where you yield the commentary. For example:
 
 ``` javascript
 yield ['Finished iterating i', point_vis, [i-1,'black']];
 ```
 
-This means that at that point in your code, you want to output to the user saying 'Finished iterating i'. To do the animation representing that event (e.g. you need to remove the pointer i), you need to put that animation code in a function, which you call as `point_vis` and  `[i-1,'black']` are the arguments to that function. You can implement this function using e.g. jquery .animate or .css, or any other library of your choice.
+This means that at that point in your code, you want to output to the user saying 'Finished iterating i'. To do the animation representing that event (e.g. visually remove the pointer i), you need to put that animation in a function, which you call as `point_vis` and  `[i-1,'black']` are the arguments to that function. You can implement this function using e.g. jquery .animate or .css, or any other library of your choice.
 
 You can also call a sequence of such functions representing different animation effects:
 
@@ -43,7 +43,7 @@ Include in HTML:
 
 In your javascript:
 
-Create your algorithm as a generator. To do this, define it as a function\* (notice the \*) and include `yield` statements inside it as mentioned above. The only additional complication is if you need to call another function that **also needs to be visualized**, or if you need to call the same function recursively. You need to convert these statements as follows:
+Create your algorithm as a generator. To do this, define it as a function\* (notice the \*) and include `yield` statements inside it as mentioned above. The only additional complication is if you need to call another function that **also needs to be visualized**, or if you need to call the same function recursively. Then, you need to convert these statements as follows:
 
 What you want:
 

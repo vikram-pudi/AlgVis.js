@@ -18,10 +18,40 @@ function Viz(init, algo) {
   this.initialized = false;
 }
 
+function can_yield() {
+  try {
+    eval('(function*() { yield 5; }())');
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function yield_supported(silent) {
+  var isChromium = window.chrome,
+      vendorName = window.navigator.vendor,
+      no_yield = ! can_yield();
+  var error = null;
+  if(isChromium !== null && vendorName === "Google Inc." && no_yield)
+    error = 'You must Enable Experimental JavaScript in chrome://flags/ for visualization to work.'
+  else if (no_yield)
+    error = 'You must use a more recent browser for this visualization.'
+  if (error && !silent) window.alert(error);
+  return error;
+}
+
+yield_supported();
+
 Viz.prototype.initialize = function() {
-  viz.process = viz.algo.apply(null, viz.init());
-  if (viz.commentary) viz.commentary.innerHTML = 'Ready to start.';
-  viz.initialized = true;
+  var error = yield_supported(true);
+  if (! error) {
+    viz.initialized = true;
+    if (viz.commentary) viz.commentary.innerHTML = 'Ready to start.';
+    viz.process = viz.algo.apply(null, viz.init());
+  } else {
+    if (viz.commentary) viz.commentary.innerHTML = error;
+    else window.alert(error);
+  }
 }
 
 Viz.prototype.run = function() {

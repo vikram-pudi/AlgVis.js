@@ -1,7 +1,8 @@
+
 var p = [5,8,3,1,6]; //default array
 $('#arraysize').attr({placeholder: p.length+''});
 
-var textlist = null;
+var textlist = [];
 function inputboxes()
 {
   $('#sizeSubmit').removeClass('btn-primary');
@@ -10,7 +11,7 @@ function inputboxes()
   var x = $('#arraysize').val() || p.length;
   for(var i=0;i<x;i++)
   {  
-    var newbox = $('<input placeholder="'+(p[i]|0)+'"/>').attr({ type: 'text', name:'text', value:'',id: "textid"+(i+1)}).addClass("text");
+    var newbox = $('<input placeholder="'+(p[i]|0)+'"/>').attr({ type: 'text', name:'text', value:'', class:'inelement'});
     $("#getboxes").append(newbox);
     textlist.push(newbox);
   }
@@ -19,14 +20,15 @@ function inputboxes()
 }
 
 function init() {
-  list=[];
-  divslist=[];
-  $('#result').empty();
+  list = [];
+  divslist = [];
+  var arraydiv = $('#result');
+  arraydiv.empty();
   for (var i=0; i < textlist.length; i++) {
-    var newdiv=$('<div>').attr({"class":"box"}); 
+    var newdiv=$('<div>').attr({"class":"box"});
     var textvalue = parseInt(textlist[i].val()) | p[i];
     list.push(textvalue);
-    $('#result').append(newdiv);
+    arraydiv.append(newdiv);
     newdiv.html(textvalue);
     divslist.push(newdiv);
   }

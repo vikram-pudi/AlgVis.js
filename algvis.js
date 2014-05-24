@@ -1,3 +1,6 @@
+/*
+  Author: Vikram Pudi, IIIT Hyderabad, India.
+*/
 
 function addEvent(element, evnt, funct){
   if (element.attachEvent)
@@ -58,9 +61,10 @@ Viz.prototype.run = function() {
   var viz = this;
   if ((!viz.initialized) && viz.init && viz.algo) {
     viz.initialize();
-    if (viz.auto_next)
-      viz.timer = setTimeout(function() {viz.run();}, 2000);
-    return;
+    if (viz.auto_next) {
+      viz.run();
+      return;
+    }
   }
   var n = viz.process.next();
   if (n) {
@@ -97,7 +101,7 @@ Viz.prototype.init_buttons = function(commentary, playbtn, nextbtn, stopbtn, pla
   if (nextbtn)
     addEvent(nextbtn, 'click', function(){viz.pause(); viz.run();});
   if (stopbtn)
-    addEvent(stopbtn, 'click', function(){viz.pause(); viz.initialize();});
+    addEvent(stopbtn, 'click', function(){viz.pause(); viz.initialize(); viz.initialized = false;});
 }
 
 Viz.prototype.play = function() {

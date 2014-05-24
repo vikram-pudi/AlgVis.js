@@ -86,3 +86,32 @@ myviz.init_buttons($('#commentary')[0], $('#play')[0], $('#next')[0], $('#stop')
 ```
 
 The example programs provided show how easy it is to build algorithm animations using AlgVis.
+
+ArrayBox.js
+===========
+
+ArrayBox.js is an additional helper module provided in this repository.
+It is a fancy way to take an array as input. Short-cut keys make it very comfortable
+for the user to enter input.
+
+It has 2 main methods:
+
+1. `show()` to show the input boxes to the user, and
+2. `val()` to get the array of values that the user has entered.
+
+The constructor takes as arguments the div whereto show the
+input boxes, and the default value of the array.
+
+E.g.:
+
+``` javascript
+var a = new ArrayBox($('#array'), [5,8,3,1,6]);
+a.show();
+var list = a.val();
+```
+
+The default array is shown on screen and the user can edit its elements.
+Additionally, new elements can be created, either using the button shown or
+by pressing `Enter`, while editing. The currently focussed element can be
+deleted by pressing `Ctrl-Del`. The focus can be moved by pressing `Ctrl-Left`
+or `Ctrl-Right`.

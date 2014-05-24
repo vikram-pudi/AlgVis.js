@@ -1,40 +1,28 @@
+/*
+  Author: Vikram Pudi, IIIT Hyderabad, India.
+*/
+/*$.when(
+  $.getScript("arraybox.js"),
+  $.getScript("algovis.js")
+).then(function(){*/
 
-var p = [5,8,3,1,6]; //default array
-$('#arraysize').attr({placeholder: p.length+''});
-
-var textlist = [];
-function inputboxes()
-{
-  $('#sizeSubmit').removeClass('btn-primary');
-  textlist = [];
-  $("#getboxes").empty();
-  var x = $('#arraysize').val() || p.length;
-  for(var i=0;i<x;i++)
-  {  
-    var newbox = $('<input placeholder="'+(p[i]|0)+'"/>').attr({ type: 'text', name:'text', value:'', class:'inelement'});
-    $("#getboxes").append(newbox);
-    textlist.push(newbox);
-  }
-  $('#autofillArray').show();
-  $('#animation').show();
-}
+$('#animation').show();
 
 function init() {
-  list = [];
-  divslist = [];
-  var arraydiv = $('#result');
-  arraydiv.empty();
-  for (var i=0; i < textlist.length; i++) {
-    var newdiv=$('<div>').attr({"class":"box"});
-    var textvalue = parseInt(textlist[i].val()) | p[i];
-    list.push(textvalue);
-    arraydiv.append(newdiv);
-    newdiv.html(textvalue);
-    divslist.push(newdiv);
-  }
+  $('#result').empty();
 }
 
 function* Sort() {
+  yield ['Enter array<br />\
+<div style="color:yellow;text-align:left;display:inline-block;">\
+<ul>\
+<li>Enter = Add element</li>\
+<li>Ctrl+Del = Delete element</li>\
+<li>Ctrl-Left / Right to select</li>\
+</ul>\
+</div><br />\
+Press <span style="color:blue">Play</span> or <span style="color:green">Next</span> when you are done.', input_array];
+  yield ['Starting quicksort...', show_arraydivs];
   var i,j;
   for (i=0; i < list.length; i++) {
     yield ['i = '+i, mvpoint_vis, [(i==0)?null:i-1, 'black', i, 'blue']];
@@ -55,6 +43,36 @@ function* Sort() {
     yield ['Finished iterating j', point_vis, [j-1,(j-1==i)?'blue':'black']];
   }
   yield ['Finished iterating i', point_vis, [i-1,'black']];
+}
+
+var a = new ArrayBox($('#array'), [5,8,3,1,6]);
+  /*ArrayBox is a fancy way to take an array as input
+    It is available in the arraybox.js file in this directory
+    It has 2 main methods: show() to show the input boxes to the user,
+    and val() to get the array of values that the user has entered.
+    The above constructor takes as arguments the div whereto show the
+    input boxes, and the default value of the array.*/
+
+function input_array() {
+  a.show();
+  if (viz.auto_next) viz.pause();
+  $('#array').show();
+  //$('#autofillArray').show();
+}
+
+function show_arraydivs() {
+  list = a.val();
+  divslist = [];
+  var arraydiv = $('#result');
+  arraydiv.empty();
+  for (var i=0; i < list.length; i++) {
+    var newdiv=$('<div>').attr({"class":"box"});
+    var newdiv=$('<div class="box">'+list[i]+'</div>');
+    arraydiv.append(newdiv);
+    divslist.push(newdiv);
+  }
+  $('#array').hide();
+  //$('#autofillArray').hide();
 }
 
 function before_swap_vis(i,j)
@@ -95,3 +113,5 @@ var myviz = new Viz(init, Sort);
 function playon() { $('#play').html('<span class="glyphicon glyphicon-play"></span>'); }
 function playoff() { $('#play').html('<span class="glyphicon glyphicon-pause"></span>'); }
 myviz.init_buttons($('#commentary')[0], $('#play')[0], $('#next')[0], $('#stop')[0], playon, playoff);
+
+//});

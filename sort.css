@@ -27,12 +27,6 @@ label
   display: inline-block;
 }
 
-#size
-{
-  display: inline-block;
-  width: 450px;
-}
-
 .inelement {width:4em; margin-right:5px;}
 
 #autofillArray

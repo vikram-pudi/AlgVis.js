@@ -1,6 +1,7 @@
 <DOCTYPE html>
 <html>
 <head><link rel="stylesheet" type="text/css" href="sort.css">
+<script src="arraybox.js"></script>
 <script src="algvis.js"></script>
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -8,19 +9,6 @@
 <body>
 <div class="centering">
   <h3>Quick Sort</h3>
-  <div id="size">
-    <form onsubmit="event.preventDefault(); inputboxes(); return false;">
-	  <label>Array Size</label>
-	  <input type="number" name="array-size" min="0" step="1" id="arraysize" autofocus>
-	  <button type="submit" class="btn btn-primary" id="sizeSubmit">Submit</button>
-	</form>
-  </div>
-  <div id='getboxes'></div>
-  <div id="autofillArray">
-      <button type="button" class="btn btn-success" id="best">Best Case</button>
-      <button type="button" class="btn btn-warning" id="worst">Worst Case</button>
-      <button type="button" class="btn btn-inverse" id="random">Random Input</button>
-  </div>
   <div id="animation">
     <div id="controls">
       <button type="button" class="btn btn-primary btn-lg" id="play"><span class="glyphicon glyphicon-play"></span></button>
@@ -30,9 +18,14 @@
     <div class="centering">
       <div id='commentary'>Press the <b>play</b> button to start automatic animation or press <b>next</b> button for step-by-step control.</div>
     </div>
+    <div id="array"></div>
+    <div id="autofillArray">
+        <button type="button" class="btn btn-success" id="best">Best Case</button>
+        <button type="button" class="btn btn-warning" id="worst">Worst Case</button>
+        <button type="button" class="btn btn-inverse" id="random">Random Input</button>
+    </div>
     <div id='result'></div>
-  </div>
-  
+  </div>  
 </div>
 </body>
 <script src="quicksort.js"></script>
